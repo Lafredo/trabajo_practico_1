@@ -1,14 +1,14 @@
 # Trabajo Práctico N°1
 Para este trabajo práctico, teniendo en cuenta las consignas, el ejemplo de resolución compartido y aplicando lógicas similares, dividi podra vislumbrar que el repositorio centa con dos archivos principales funciones.h y funciones.c
 
-##funciones.h
+## funciones.h
 En la libreria creada van a encontrar las funciones utilizadas por el codigo principal y el tipo de dato articulos_t el cual utilizaremos mas adelante.
 Yo por mi parte, decidí dividir el código en tres funciones principales:
--Una para que el usuario pueda cargar los articulos, nombrada `void CargarArticulos(articulos_t, int);`.
--Una que imprima la lista de articulos cargados, nombrada `void ImpresionArticulos(articulos_t, int, int []);`.
--Una que los ordene, nombrada `void OrdenarArticulos(articulos_t [], int, int []);`.
+- Una para que el usuario pueda cargar los articulos, nombrada `void CargarArticulos(articulos_t, int);`.
+- Una que imprima la lista de articulos cargados, nombrada `void ImpresionArticulos(articulos_t, int, int []);`.
+- Una que los ordene, nombrada `void OrdenarArticulos(articulos_t [], int, int []);`.
 
-###void CargarArticulos(articulos_t, int);
+### void CargarArticulos(articulos_t, int);
 ```
 void CargarArticulos(articulos_t art[], int cant){
     int opc = 0, i,sucursal,index;
@@ -41,7 +41,7 @@ void CargarArticulos(articulos_t art[], int cant){
     }while(opc==1);
 }
 ```
-###void ImpresionArticulos(articulos_t, int, int []);
+### void ImpresionArticulos(articulos_t, int, int []);
 ```
 void ImpresionArticulos(articulos_t art[], int cant, int orden[]){
     int i=0;
@@ -52,7 +52,7 @@ void ImpresionArticulos(articulos_t art[], int cant, int orden[]){
     }
 }
 ```
-###void OrdenarArticulos(articulos_t [], int, int []);
+### void OrdenarArticulos(articulos_t [], int, int []);
 ```
 void OrdenarArticulos(articulos_t art[], int cant, int orden[]){
     int i, j, aux;
