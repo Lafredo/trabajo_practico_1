@@ -23,8 +23,8 @@ void CargarArticulos(articulos_t art[], int cant){
         scanf("%s", articulo);
 
         i=0;
-        while (art[i].descripcion[0] && strcmp(articulo, art[i].descripcion) && i < cant) i++;
-        index = i;
+        while (art[i].descripcion[0] && strcmp(articulo, art[i].descripcion) && i < cant) i++; //mientras que el articulo en la posición i no este vacío '\0' y no sea igual al ingresado i++
+        index = i; // conserva la posición si el articulo ya existe o rellena si no hay articulos en la posicion siguiente.
         strcpy(art[index].descripcion, articulo);
 
         printf("\nArticulo a cargar: %s | Indice: %d", art[index].descripcion, index+1);
@@ -34,8 +34,8 @@ void CargarArticulos(articulos_t art[], int cant){
         printf("\nIngrese la cantidad a cargar: ");
         scanf("%d", &art[index].cantidad_sucursal[sucursal-1]);
 
-        art[index].total = 0;
-        for(i=0; i<3; i++) art[index].total += art[index].cantidad_sucursal[i];
+        art[index].total = 0; // condición necesaria para que en la suma despues de cargar de nuevos articulos a demas sucursales no tome el total anterior
+        for(i=0; i<3; i++) art[index].total += art[index].cantidad_sucursal[i]; // realiza la suma de los articulos de las tres sucursales
         printf("\nTotal de unidades del articulo %s en todas las sucursales: %d\n", art[index].descripcion, art[index].total);
 
         printf("\nDesea cargar otro articulo? (1-Si, 0-No)\n");
@@ -52,7 +52,7 @@ void ImpresionArticulos(articulos_t art[], int cant, int orden[]){
     while(i< cant && art[orden[i]].descripcion[0]){
         printf("%s\t%d\t%d\t%d\t%d\n", art[orden[i]].descripcion, art[orden[i]].cantidad_sucursal[SUCURSAL_1], art[orden[i]].cantidad_sucursal[SUCURSAL_2], art[orden[i]].cantidad_sucursal[SUCURSAL_3],art[orden[i]].total);
         i++;
-    }
+    }// utilizo el vector orden para imprimir todas las posiciones al principio desordenadas y luego ordenadas
 }
 ```
 ### void OrdenarArticulos(articulos_t [], int, int []);
@@ -68,7 +68,7 @@ void OrdenarArticulos(articulos_t art[], int cant, int orden[]){
                 orden[i] = aux;
             }
         }
-    }
+    }// ordeno el vector orden
 
     printf("\n###################################");
     printf("\n##############ORDENADO#############");
