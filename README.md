@@ -76,7 +76,7 @@ void OrdenarArticulos(articulos_t art[], int cant, int orden[]){
 }
 ```
 ## funciones.c :bulb:
-En el código principal incluí las mismas librerias utilizadas en funciones.h y la mencionada, además definí la variable global `#DEFINE CANT_ARTICULOS 60` la cual nos permite, en caso de que la cantidad de articulos varie, no tener que reemplazar los nuevos valores término por término en la función. El main() no se anda con rodeos y es bastante auto explicativo lo único a resaltar es lo mencionado anteriormente, que es el tipo de dato que utilizamos como vector de estructuras `articulos_t art[]` y como funciona el vector entero `orden[]`.
+En el código principal incluí las mismas librerias utilizadas en funciones.h y la mencionada, además definí la variable global `#DEFINE CANT_ARTICULOS 60` la cual nos permite, en caso de que la cantidad de articulos varie, no tener que reemplazar los nuevos valores término por término en la función. El main() no se anda con rodeos, define las variables principales y ejecuta las tres funciones importadas desde `"funciones.h"`. Lo único a explicar es lo mencionado anteriormente, que es el tipo de dato que utilizamos como vector de estructuras `articulos_t` y como funciona el vector entero `orden[]`.
 ### articulo_t
 Es un tipo de dato de estructuras el cual utilizamos para definir las partes de nuestro articulo, contamos con una componente char que nos indica su nombre, con un vector de tipo entero de tres espacios el cual nos indica cantidad de ese articulo por sucursal, y una componente entera que representa la suma del mismo articulo en las tres sucursales.
 ```
@@ -86,10 +86,11 @@ typedef struct {
     int total; // Total de unidades en las 3 sucursales
 }articulos_t;
 ```
-> Su definición la encontrarán en funciones.h
+> Su definición la encontrarán en funciones.h, en el main lo utilizaremos de la siguiente manera ---> `articulos_t art[CANT_ARTICULOS] = {0};`
 ### orden[]
 Es un vector de caracter entero, cada parte de este cuenta con un dato que es equivalente a la posición en la que se encuentra. Con esto en mente es facil darse cuenta que orden[0] = 0; orden[1] = 1; ... ; orden[n] = n. En este caso el main inicializa cada dato con la siguiente línea:
 ```
+int orden[CANT_ARTICULOS] = {0}, i = 0;
 while(orden[i]==0 && i < CANT_ARTICULOS) orden[i++] = i-1;
 ```
 Este vector lo utilizaremos en la función ImpresiónArticulos y OrdenarArticulos.
